@@ -4,10 +4,10 @@
 
 //A les données : Créer Array de liste de produits (Strings)
 function initArrayProduct() {
-    var products = ['Fender', 'Gibson', 'Ibanez', 'LAG'];
+    let products = ['Fender', 'Gibson', 'Ibanez', 'LAG'];
     return products;
-};
-console.log(initArrayProduct());
+}
+initArrayProduct();
 
 
 //B Vider le menu UL LI : function resetMenu()
@@ -19,12 +19,31 @@ function resetMenu() {
         ul.removeChild(liSelection);
     }
 }
-
 resetMenu();
 
 
 //C Boucler sur la liste des produits (boulce for array) function addAllToMenu()
+function addAllToMenu() {
+    let items = [];
+    for (let item of initArrayProduct()) {
+        items.push(item);
+    }
+}
+addAllToMenu();
 
 //D Sur chaque produits Ajouter ELEMENT GRAPHIQUE addItemToMenu (param name)
+// function addItemToMenu() {
 
+//     for (let items of addAllToMenu()) {
+//         console.log(items);
+//         // let ul = document.querySelector('ul');
+//         // let li = document.createElement('li');
+//         // let a = document.createElement('a');
+//         // a.setAttribute('href', '#');
+//         // a.textContent = items;
+//         // ul.appendChild(li);
+//         // li.appendChild(a);
+//     }
+// }
+// addItemToMenu();
 //E resetAndInitMenu() // restMenu + addAllToMenu
