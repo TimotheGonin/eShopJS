@@ -23,8 +23,10 @@ resetMenu();
 
 
 //C Boucler sur la liste des produits (boulce for array) function addAllToMenu()
+
+let items = [];
+
 function addAllToMenu() {
-    let items = [];
     for (let item of initArrayProduct()) {
         items.push(item);
     }
@@ -32,18 +34,18 @@ function addAllToMenu() {
 addAllToMenu();
 
 //D Sur chaque produits Ajouter ELEMENT GRAPHIQUE addItemToMenu (param name)
-// function addItemToMenu() {
+function addItemToMenu() {
 
-//     for (let items of addAllToMenu()) {
-//         console.log(items);
-//         // let ul = document.querySelector('ul');
-//         // let li = document.createElement('li');
-//         // let a = document.createElement('a');
-//         // a.setAttribute('href', '#');
-//         // a.textContent = items;
-//         // ul.appendChild(li);
-//         // li.appendChild(a);
-//     }
-// }
-// addItemToMenu();
+    for (let item of items) {
+        let ul = document.querySelector('ul');
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        a.setAttribute('href', '#');
+        a.textContent = item;
+        ul.appendChild(li);
+        li.appendChild(a);
+    }
+}
+addItemToMenu();
+
 //E resetAndInitMenu() // restMenu + addAllToMenu
