@@ -19,7 +19,7 @@ function resetMenu() {
         ul.removeChild(liSelection);
     }
 }
-resetMenu();
+// resetMenu();
 
 
 //C Boucler sur la liste des produits (boulce for array) function addAllToMenu()
@@ -31,10 +31,9 @@ function addAllToMenu() {
         items.push(item);
     }
 }
-addAllToMenu();
 
 //D Sur chaque produits Ajouter ELEMENT GRAPHIQUE addItemToMenu (param name)
-function addItemToMenu() {
+function addItemToMenu(item) {
 
     for (let item of items) {
         let ul = document.querySelector('ul');
@@ -46,6 +45,11 @@ function addItemToMenu() {
         li.appendChild(a);
     }
 }
-addItemToMenu();
 
-//E resetAndInitMenu() // restMenu + addAllToMenu
+//E resetAndInitMenu() // resetMenu + addAllToMenu
+function resetAndInitMenu() {
+    resetMenu();
+    addAllToMenu();
+}
+resetAndInitMenu();
+addItemToMenu(items);
