@@ -3,14 +3,20 @@
 //DATA + visualisation
 
 //A les données : Créer Array de liste de produits (Strings)
+//B Vider le menu UL LI : function resetMenu()
+//C Boucler sur la liste des produits (boulce for array) function addAllToMenu()
+//D Sur chaque produits Ajouter ELEMENT GRAPHIQUE addItemToMenu (param name)
+//E resetAndInitMenu() // resetMenu + addAllToMenu
+
+
+//A
 function initArrayProduct() {
     let products = ['Fender', 'Gibson', 'Ibanez', 'LAG'];
     return products;
 }
 initArrayProduct();
 
-
-//B Vider le menu UL LI : function resetMenu()
+//B
 function resetMenu() {
     let ul = document.querySelector('ul')
     let lis = document.querySelectorAll('li');
@@ -19,37 +25,32 @@ function resetMenu() {
         ul.removeChild(liSelection);
     }
 }
-// resetMenu();
 
 
-//C Boucler sur la liste des produits (boulce for array) function addAllToMenu()
-
+//C
 let items = [];
 
 function addAllToMenu() {
     for (let item of initArrayProduct()) {
         items.push(item);
+        addItemToMenu(item);
     }
 }
 
-//D Sur chaque produits Ajouter ELEMENT GRAPHIQUE addItemToMenu (param name)
-function addItemToMenu(item) {
-
-    for (let item of items) {
-        let ul = document.querySelector('ul');
-        let li = document.createElement('li');
-        let a = document.createElement('a');
-        a.setAttribute('href', '#');
-        a.textContent = item;
-        ul.appendChild(li);
-        li.appendChild(a);
-    }
+//D
+function addItemToMenu(name) {
+    let ul = document.querySelector('ul');
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    a.setAttribute('href', '#');
+    a.textContent = name;
+    ul.appendChild(li);
+    li.appendChild(a);
 }
 
-//E resetAndInitMenu() // resetMenu + addAllToMenu
+//E
 function resetAndInitMenu() {
     resetMenu();
     addAllToMenu();
 }
 resetAndInitMenu();
-addItemToMenu(items);
