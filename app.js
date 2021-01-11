@@ -54,3 +54,14 @@ function resetAndInitMenu() {
     addAllToMenu();
 }
 resetAndInitMenu();
+
+
+//ALGO 2 Ajouter des produits au catalogue
+
+//A créer champs input
+//B créer un bouton avec EVENT onclick
+//C sur EVENT appeler fonction AddItem(name) (le nom viens du input)
+//d Ajouter element dans le arrayDeProduits
+//E function checkDoubles (doublons)
+//fonction avec param nem e tester / boucle sur produits et test chaque element
+//si élement truové retrun true, sinon false
