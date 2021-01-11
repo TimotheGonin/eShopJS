@@ -64,7 +64,7 @@ resetAndInitMenu();
 //d Ajouter element dans le arrayDeProduits (items)
 //E function checkDoubles (doublons)
 //fonction avec param nem e tester / boucle sur produits et test chaque element
-//si élement truové retrun true, sinon false
+//si élement trouvé retrun true, sinon false
 
 //B
 let submitBtn = document.getElementById('confBtn');
@@ -73,8 +73,8 @@ let submitBtn = document.getElementById('confBtn');
 submitBtn.addEventListener('click', addItem);
 
 function addItem(name) {
-    let newToMenu = newItem.value;
-    items.push(newToMenu);
+    // let newToMenu = newItem.value;
+    items.push(newItem.value);
     console.log(items);
     addItemToMenu(items[(items.length) - 1]);
 }
