@@ -63,7 +63,7 @@ resetAndInitMenu();
 //C sur EVENT appeler fonction AddItem(name) (le nom viens du input)
 //d Ajouter element dans le arrayDeProduits (items)
 //E function checkDoubles (doublons)
-//fonction avec param nem e tester / boucle sur produits et test chaque element
+//fonction avec param name à tester / boucle sur produits et test chaque element
 //si élement trouvé retrun true, sinon false
 
 //B
@@ -72,9 +72,23 @@ let submitBtn = document.getElementById('confBtn');
 //C
 submitBtn.addEventListener('click', addItem);
 
+//D
 function addItem(name) {
-    // let newToMenu = newItem.value;
-    items.push(newItem.value);
-    console.log(items);
+    checkDouble();
+    name = newItem;
+    items.push(name.value);
     addItemToMenu(items[(items.length) - 1]);
+    name.value = '';
+}
+
+//E
+function checkDouble(name) {
+    name = newItem;
+    let formBG = document.getElementsByTagName('h3');
+    for (let i = 0; i < items.length; i++) {
+        if (name.value === items[i]) {
+            name.value = '';
+            alert('Impossible, produits déjà ajouté !');
+        }
+    }
 }
