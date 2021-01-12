@@ -74,21 +74,35 @@ submitBtn.addEventListener('click', addItem);
 
 //D
 function addItem(name) {
-    checkDouble();
     name = newItem;
-    items.push(name.value);
-    addItemToMenu(items[(items.length) - 1]);
-    name.value = '';
+    if (checkDouble(name) || checkEmpty(name)) {
+        alert('Impossible, produits déjà ajouté !');
+    } else {
+        items.push(name.value);
+        addItemToMenu(items[(items.length) - 1]);
+        name.value = '';
+    }
 }
 
 //E
 function checkDouble(name) {
     name = newItem;
-    let formBG = document.getElementsByTagName('h3');
+    let isDouble = false;
     for (let i = 0; i < items.length; i++) {
         if (name.value === items[i]) {
+            isDouble = true;
             name.value = '';
-            alert('Impossible, produits déjà ajouté !');
         }
     }
+    return isDouble;
+}
+
+function checkEmpty(name) {
+    name = newItem;
+    let isEmpty = false;
+    if (name.value === '') {
+        isEmpty = true;
+        alert('Impossible d\'ajouter un produit vide');
+    }
+    return isEmpty;
 }
