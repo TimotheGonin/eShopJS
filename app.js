@@ -106,3 +106,28 @@ function checkEmpty(name) {
     }
     return isEmpty;
 }
+
+
+// ALGO 3 supprimer un produit de notre inventaire
+
+// A ajouter bouton DELETE
+// B créer fonction deleteItem(name)
+// C parcourir la liste de produits et supprimer si trouvé
+// D BONUS mousseOver : Si la souris survole un item du menu de gauche, faire un SET input pour avec le nom du produit survolé dans le champs texte
+
+//A
+let deleteBtn = document.getElementById('delBtn');
+deleteBtn.addEventListener('click', deleteItem);
+
+//B//C
+function deleteItem(name) {
+    name = newItem;
+    if (checkDouble(name)) {
+        items.splice(((items.length) - 1), 1);
+        name.value = '';
+        resetAndInitMenu();
+    } else {
+        alert('L\'item n\'existe pas');
+        name.value = '';
+    }
+}
