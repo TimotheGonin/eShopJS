@@ -31,9 +31,17 @@ function resetMenu() {
 let items = [];
 
 function addAllToMenu() {
-    for (let item of initArrayProduct()) {
-        items.push(item);
-        addItemToMenu(item);
+    if (items.length === 0) {
+        for (let item of initArrayProduct()) {
+            items.push(item);
+            addItemToMenu(item);
+        }
+    } else {
+        for (let item of items) {
+            resetMenu();
+            items.push(item);
+            addItemToMenu(item);
+        }
     }
 }
 
