@@ -50,6 +50,7 @@ function addItemToMenu(name) {
     let li = document.createElement('li');
     let a = document.createElement('a');
     a.setAttribute('href', '#');
+    a.setAttribute('onmouseover', "setInput('" + name + "')");
     a.textContent = name;
     ul.appendChild(li);
     li.appendChild(a);
@@ -137,4 +138,9 @@ function deleteItem(name) {
         addAllToMenu();
         name.value = '';
     }
+}
+
+//D
+function setInput(name) {
+    document.getElementById("newItem").value = name;
 }
