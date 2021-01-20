@@ -37,9 +37,8 @@ function addAllToMenu() {
             addItemToMenu(item);
         }
     } else {
+        resetMenu();
         for (let item of items) {
-            resetMenu();
-            items.push(item);
             addItemToMenu(item);
         }
     }
@@ -130,12 +129,12 @@ deleteBtn.addEventListener('click', deleteItem);
 //B//C
 function deleteItem(name) {
     name = newItem;
-    if (checkDouble(name)) {
-        items.splice(((items.length) - 1), 1);
-        name.value = '';
-        resetAndInitMenu();
+    let cible = items.indexOf(name.value);
+    if (name.value === '') {
+        alert('Impossible de supprimer un produit inéxistant')
     } else {
-        alert('L\'item n\'existe pas');
+        items.splice(cible, 1);
+        addAllToMenu();
         name.value = '';
     }
 }
