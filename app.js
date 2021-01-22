@@ -1,3 +1,8 @@
+//VIDER INPUT
+function resetInput() {
+    newItem.value = '';
+}
+
 //ALGO 1 Afficher liste de produits dynamique
 
 //DATA + visualisation
@@ -83,12 +88,13 @@ submitBtn.addEventListener('click', addItem);
 //D
 function addItem(name) {
     name = newItem;
-    if (checkDouble(name) || checkEmpty(name)) {
+    if (checkDouble(name) && checkEmpty(name)) {
         alert('Impossible, produits déjà ajouté !');
+        resetInput();
     } else {
         items.push(name.value);
         addItemToMenu(items[(items.length) - 1]);
-        name.value = '';
+        resetInput();
     }
 }
 
@@ -99,7 +105,6 @@ function checkDouble(name) {
     for (let i = 0; i < items.length; i++) {
         if (name.value === items[i]) {
             isDouble = true;
-            name.value = '';
         }
     }
     return isDouble;
@@ -110,7 +115,7 @@ function checkEmpty(name) {
     let isEmpty = false;
     if (name.value === '') {
         isEmpty = true;
-        alert('Impossible d\'ajouter un produit vide');
+        alert('Le champ est vide, action impossible');
     }
     return isEmpty;
 }
@@ -130,14 +135,15 @@ deleteBtn.addEventListener('click', deleteItem);
 //B//C
 function deleteItem(name) {
     name = newItem;
-    let cible = items.indexOf(name.value);
-    if (name.value === '') {
-        alert('Impossible de supprimer un produit inéxistant')
-    } else {
-        items.splice(cible, 1);
-        addAllToMenu();
-        name.value = '';
+    if (checkEmpty(name.value)) {} else {
+        for (let i = 0; i < items.length; i++) {
+            if (name.value === items[i]) {
+                items.splice(i, 1);
+                resetAndInitMenu();
+            }
+        }
     }
+    resetInput();
 }
 
 //D
