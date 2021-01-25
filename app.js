@@ -150,3 +150,27 @@ function deleteItem(name) {
 function setInput(name) {
     document.getElementById("newItem").value = name;
 }
+
+
+// ALGO 4 panier ajouter et vider
+
+//A creer Array qui correspond à notre panier
+//B afficherTextPanier
+//C onclick sur les elements du menu AddToCart(name)
+//D bouton VIDER PANIER
+//E afficher les details du panier(tous les produits)
+
+//A
+let cart = [];
+
+//B
+let cartStatus = document.getElementById('cartStatus');
+
+function afficherTextPanier() {
+    if (cart.length > 1) {
+        cartStatus.textContent = "Vous avez " + cart.length + " ok plusieurs";
+    } else {
+        cartStatus.textContent = "Vous avez " + cart.length + " ok solo";
+    }
+}
+afficherTextPanier();
