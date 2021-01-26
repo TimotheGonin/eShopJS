@@ -56,6 +56,7 @@ function addItemToMenu(name) {
     let a = document.createElement('a');
     a.setAttribute('href', '#');
     a.setAttribute('onmouseover', "setInput('" + name + "')");
+    a.setAttribute('onclick', "addtoCart('" + name + "')")
     a.textContent = name;
     ul.appendChild(li);
     li.appendChild(a);
@@ -162,9 +163,14 @@ let cartStatus = document.getElementById('cartStatus');
 
 function afficherTextPanier() {
     if (cart.length > 1) {
-        cartStatus.textContent = "Vous avez " + cart.length + " ok plusieurs";
+        cartStatus.textContent = "Vous avez " + cart.length + " produits dans le panier";
     } else {
-        cartStatus.textContent = "Vous avez " + cart.length + " ok solo";
+        cartStatus.textContent = "Vous avez " + cart.length + " produit dans le panier";
     }
 }
 afficherTextPanier();
+
+//C
+function addtoCart(name) {
+    cart.push(name);
+}
