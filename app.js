@@ -56,7 +56,7 @@ function addItemToMenu(name) {
     let a = document.createElement('a');
     a.setAttribute('href', '#');
     a.setAttribute('onmouseover', "setInput('" + name + "')");
-    a.setAttribute('onclick', "addtoCart('" + name + "')")
+    a.setAttribute('onclick', "addToCart('" + name + "')")
     a.textContent = name;
     ul.appendChild(li);
     li.appendChild(a);
@@ -168,9 +168,10 @@ function afficherTextPanier() {
         cartStatus.textContent = "Vous avez " + cart.length + " produit dans le panier";
     }
 }
-afficherTextPanier();
+
 
 //C
-function addtoCart(name) {
+function addToCart(name) {
     cart.push(name);
+    afficherTextPanier();
 }
