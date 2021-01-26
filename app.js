@@ -175,3 +175,12 @@ function addToCart(name) {
     cart.push(name);
     afficherTextPanier();
 }
+
+//D
+let reinitCartBtn = document.getElementById('reinitCart');
+
+reinitCartBtn.addEventListener('click', () => {
+    cart.splice(0, cart.length);
+    console.log(cart);
+    afficherTextPanier();
+})
