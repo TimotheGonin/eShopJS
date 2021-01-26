@@ -80,23 +80,19 @@ resetAndInitMenu();
 //si élement trouvé retrun true, sinon false
 
 //B
-let submitBtn = document.getElementById('confBtn');
+let addBtn = document.getElementById('confBtn');
 
-//C
-submitBtn.addEventListener('click', addItem);
-
-//D
-function addItem(name) {
-    name = newItem;
-    if (checkDouble(name) && checkEmpty(name)) {
+//C//D
+addBtn.addEventListener('click', () => {
+    if (checkDouble(newItem.value)) {
         alert('Impossible, produits déjà ajouté !');
         resetInput();
     } else {
-        items.push(name.value);
+        items.push(newItem.value);
         addItemToMenu(items[(items.length) - 1]);
         resetInput();
     }
-}
+});
 
 //E
 function checkDouble(name) {
