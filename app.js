@@ -130,21 +130,19 @@ function checkEmpty(name) {
 
 //A
 let deleteBtn = document.getElementById('delBtn');
-deleteBtn.addEventListener('click', deleteItem);
 
 //B//C
-function deleteItem(name) {
-    name = newItem;
-    if (checkEmpty(name.value)) {} else {
+deleteBtn.addEventListener('click', () => {
+    if (checkEmpty(newItem.value)) {} else {
         for (let i = 0; i < items.length; i++) {
-            if (name.value === items[i]) {
+            if (newItem.value === items[i]) {
                 items.splice(i, 1);
                 resetAndInitMenu();
             }
         }
     }
     resetInput();
-}
+});
 
 //D
 function setInput(name) {
