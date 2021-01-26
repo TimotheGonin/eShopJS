@@ -84,7 +84,9 @@ let addBtn = document.getElementById('confBtn');
 
 //C//D
 addBtn.addEventListener('click', () => {
-    if (checkDouble(newItem.value)) {
+    if (checkEmpty(newItem.value)) {
+        resetInput();
+    } else if (checkDouble(newItem.value)) {
         alert('Impossible, produits déjà ajouté !');
         resetInput();
     } else {
@@ -96,10 +98,9 @@ addBtn.addEventListener('click', () => {
 
 //E
 function checkDouble(name) {
-    name = newItem;
     let isDouble = false;
     for (let i = 0; i < items.length; i++) {
-        if (name.value === items[i]) {
+        if (name === items[i]) {
             isDouble = true;
         }
     }
@@ -107,9 +108,8 @@ function checkDouble(name) {
 }
 
 function checkEmpty(name) {
-    name = newItem;
     let isEmpty = false;
-    if (name.value === '') {
+    if (name === '') {
         isEmpty = true;
         alert('Le champ est vide, action impossible');
     }
