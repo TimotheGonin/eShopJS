@@ -174,6 +174,7 @@ function afficherTextPanier() {
 function addToCart(name) {
     cart.push(name);
     afficherTextPanier();
+    showMeCart()
 }
 
 //D
@@ -183,4 +184,16 @@ reinitCartBtn.addEventListener('click', () => {
     cart.splice(0, cart.length);
     console.log(cart);
     afficherTextPanier();
+    showMeCart()
 })
+
+//E
+function showMeCart() {
+    let cartDetail = []
+    for (let i = 0; i < cart.length; i++) {
+        cartDetail = cartDetail + ' ' + cart[i] + ',\n';
+    }
+    document.getElementById('cartDetail').textContent = cartDetail;
+}
+
+showMeCart();
