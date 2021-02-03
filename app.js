@@ -1,3 +1,5 @@
+//[PART (1)]
+
 //TO EMPTY INPUT
 function resetInput() {
     newItem.value = '';
@@ -59,20 +61,12 @@ function resetAndInitMenu() {
 resetAndInitMenu();
 
 
-//ALGO 2 Ajouter des produits au catalogue
+//[PART (2)]
 
-//A créer champs input
-//B créer un bouton avec EVENT onclick
-//C sur EVENT appeler fonction AddItem(name) (le nom viens du input)
-//d Ajouter element dans le arrayDeProduits (items)
-//E function checkDoubles (doublons)
-//fonction avec param name à tester / boucle sur produits et test chaque element
-//si élement trouvé retrun true, sinon false
-
-//B
+//LINK TO ADD BUTTON
 let addBtn = document.getElementById('confBtn');
 
-//C//D
+//EVENT => CHECKING (if EMPTY ARRAY), CHEKING (if INPUT === ARRAY) / (OK =>PUSHING TO ITEMS ARRAY)
 addBtn.addEventListener('click', () => {
     if (checkEmpty(newItem.value)) {
         resetInput();
@@ -86,7 +80,7 @@ addBtn.addEventListener('click', () => {
     }
 });
 
-//E
+//FUNCTION CHECK (if INPUT === ARRAY)
 function checkDouble(name) {
     let isDouble = false;
     for (let i = 0; i < items.length; i++) {
@@ -97,6 +91,7 @@ function checkDouble(name) {
     return isDouble;
 }
 
+//FUNCTION CHECK (if EMPTY ARRAY)
 function checkEmpty(name) {
     let isEmpty = false;
     if (name === '') {
@@ -107,17 +102,12 @@ function checkEmpty(name) {
 }
 
 
-// ALGO 3 supprimer un produit de notre inventaire
+//[PART (3)]
 
-// A ajouter bouton DELETE
-// B créer fonction deleteItem(name)
-// C parcourir la liste de produits et supprimer si trouvé
-// D BONUS mousseOver : Si la souris survole un item du menu de gauche, faire un SET input pour avec le nom du produit survolé dans le champs texte
-
-//A
+//LINK TO DELETE BUTTON
 let deleteBtn = document.getElementById('delBtn');
 
-//B//C
+//EVENT => CHECKING (if EMPTY ARRAY), SEARCH ITEM / (OK =>DELETE ITEM ARRAY + RESET AND INIT MENU)
 deleteBtn.addEventListener('click', () => {
     if (checkEmpty(newItem.value)) {} else {
         for (let i = 0; i < items.length; i++) {
@@ -130,7 +120,7 @@ deleteBtn.addEventListener('click', () => {
     resetInput();
 });
 
-//D
+//ITEM IN MENU TO INPUT WITH MOUSE OVER 
 function setInput(name) {
     document.getElementById("newItem").value = name;
 }
@@ -144,12 +134,13 @@ function setInput(name) {
 //D bouton VIDER PANIER
 //E afficher les details du panier(tous les produits)
 
-//A
+//CART ARRAY
 let cart = [];
 
-//B
+//LINK WITH CART CONTENT AREA(index.html)
 let cartStatus = document.getElementById('cartStatus');
 
+//CART CONTENT DISPLAY(index.html)
 function afficherTextPanier() {
     if (cart.length > 1) {
         cartStatus.textContent = "Vous avez " + cart.length + " produits dans le panier";
@@ -159,16 +150,17 @@ function afficherTextPanier() {
 }
 
 
-//C
+//EVENT LINKED WITH (GENERATE ITEMS TO MENU)
 function addToCart(name) {
     cart.push(name);
     afficherTextPanier();
     showMeCart()
 }
 
-//D
+//LINK WITH CART'S IMAGE(index.html)
 let reinitCartBtn = document.getElementById('reinitCart');
 
+//EVENT TO EMPTY CART ARRAY + REINIT CART'S CONTENT DISPLAY(index.html)
 reinitCartBtn.addEventListener('click', () => {
     cart.splice(0, cart.length);
     console.log(cart);
@@ -176,7 +168,7 @@ reinitCartBtn.addEventListener('click', () => {
     showMeCart()
 })
 
-//E
+//DISPLAY CART DETAIL(index.html)
 function showMeCart() {
     let cartDetail = []
     for (let i = 0; i < cart.length; i++) {
