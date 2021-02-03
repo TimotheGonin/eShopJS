@@ -126,13 +126,7 @@ function setInput(name) {
 }
 
 
-// ALGO 4 panier ajouter et vider
-
-//A creer Array qui correspond à notre panier
-//B afficherTextPanier
-//C onclick sur les elements du menu AddToCart(name)
-//D bouton VIDER PANIER
-//E afficher les details du panier(tous les produits)
+//[PART (4)]
 
 //CART ARRAY
 let cart = [];
