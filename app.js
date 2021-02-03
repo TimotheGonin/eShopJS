@@ -1,27 +1,16 @@
-//VIDER INPUT
+//TO EMPTY INPUT
 function resetInput() {
     newItem.value = '';
 }
 
-//ALGO 1 Afficher liste de produits dynamique
-
-//DATA + visualisation
-
-//A les données : Créer Array de liste de produits (Strings)
-//B Vider le menu UL LI : function resetMenu()
-//C Boucler sur la liste des produits (boulce for array) function addAllToMenu()
-//D Sur chaque produits Ajouter ELEMENT GRAPHIQUE addItemToMenu (param name)
-//E resetAndInitMenu() // resetMenu + addAllToMenu
-
-
-//A
+//ARRAY FOR PAGE INIT
 function initArrayProduct() {
     let products = ['Fender', 'Gibson', 'Ibanez', 'LAG'];
     return products;
 }
 initArrayProduct();
 
-//B
+//RESET MENU
 function resetMenu() {
     let ul = document.querySelector('ul')
     let lis = document.querySelectorAll('li');
@@ -32,7 +21,7 @@ function resetMenu() {
 }
 
 
-//C
+//ADDING TO MENU
 let items = [];
 
 function addAllToMenu() {
@@ -49,7 +38,7 @@ function addAllToMenu() {
     }
 }
 
-//D
+//GENERATE ITEMS TO MENU
 function addItemToMenu(name) {
     let ul = document.querySelector('ul');
     let li = document.createElement('li');
@@ -62,7 +51,7 @@ function addItemToMenu(name) {
     li.appendChild(a);
 }
 
-//E
+//RESET AND INIT MENU
 function resetAndInitMenu() {
     resetMenu();
     addAllToMenu();
