@@ -1,8 +1,11 @@
 //[PART (1)]
 
+//LINK TO INPUT TEXT(index.html)
+let userInput = document.getElementById('newItem');
+
 //TO EMPTY INPUT
 function resetInput() {
-    newItem.value = '';
+    userInput.value = '';
 }
 
 //ARRAY FOR PAGE INIT
@@ -14,7 +17,7 @@ initArrayProduct();
 
 //RESET MENU
 function resetMenu() {
-    let ul = document.querySelector('ul')
+    let ul = document.querySelector('ul');
     let lis = document.querySelectorAll('li');
     for (let i = 0; i < lis.length; i++) {
         let liSelection = lis[i];
@@ -47,7 +50,7 @@ function addItemToMenu(name) {
     let a = document.createElement('a');
     a.setAttribute('href', '#');
     a.setAttribute('onmouseover', "setInput('" + name + "')");
-    a.setAttribute('onclick', "addToCart('" + name + "')")
+    a.setAttribute('onclick', "addToCart('" + name + "')");
     a.textContent = name;
     ul.appendChild(li);
     li.appendChild(a);
@@ -68,13 +71,13 @@ let addBtn = document.getElementById('confBtn');
 
 //EVENT => CHECKING (if EMPTY ARRAY), CHEKING (if INPUT === ARRAY) / (OK =>PUSHING TO ITEMS ARRAY)
 addBtn.addEventListener('click', () => {
-    if (checkEmpty(newItem.value)) {
+    if (checkEmpty(userInput.value)) {
         resetInput();
-    } else if (checkDouble(newItem.value)) {
+    } else if (checkDouble(userInput.value)) {
         alert('Impossible, produits déjà ajouté !');
         resetInput();
     } else {
-        items.push(newItem.value);
+        items.push(userInput.value);
         addItemToMenu(items[(items.length) - 1]);
         resetInput();
     }
@@ -109,9 +112,9 @@ let deleteBtn = document.getElementById('delBtn');
 
 //EVENT => CHECKING (if EMPTY ARRAY), SEARCH ITEM / (OK =>DELETE ITEM ARRAY + RESET AND INIT MENU)
 deleteBtn.addEventListener('click', () => {
-    if (checkEmpty(newItem.value)) {} else {
+    if (checkEmpty(userInput.value)) {} else {
         for (let i = 0; i < items.length; i++) {
-            if (newItem.value === items[i]) {
+            if (userInput.value === items[i]) {
                 items.splice(i, 1);
                 resetAndInitMenu();
             }
@@ -122,7 +125,7 @@ deleteBtn.addEventListener('click', () => {
 
 //ITEM IN MENU TO INPUT WITH MOUSE OVER 
 function setInput(name) {
-    document.getElementById("newItem").value = name;
+    userInput.value = name;
 }
 
 
@@ -148,7 +151,7 @@ function afficherTextPanier() {
 function addToCart(name) {
     cart.push(name);
     afficherTextPanier();
-    showMeCart()
+    showMeCart();
 }
 
 //LINK WITH CART'S IMAGE(index.html)
@@ -159,12 +162,12 @@ reinitCartBtn.addEventListener('click', () => {
     cart.splice(0, cart.length);
     console.log(cart);
     afficherTextPanier();
-    showMeCart()
-})
+    showMeCart();
+});
 
 //DISPLAY CART DETAIL(index.html)
 function showMeCart() {
-    let cartDetail = []
+    let cartDetail = [];
     for (let i = 0; i < cart.length; i++) {
         cartDetail = cartDetail + ' ' + cart[i] + ',\n';
     }
